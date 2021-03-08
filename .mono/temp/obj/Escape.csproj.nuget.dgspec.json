@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\metak\\Desktop\\Projects\\git\\Escape\\Escape.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\metak\\Desktop\\Projects\\git\\Escape\\Escape.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\metak\\Desktop\\Projects\\git\\Escape\\Escape.csproj",
+        "projectName": "Escape",
+        "projectPath": "C:\\Users\\metak\\Desktop\\Projects\\git\\Escape\\Escape.csproj",
+        "packagesPath": "C:\\Users\\metak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\metak\\Desktop\\Projects\\git\\Escape\\.mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\metak\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net47"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net47": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net47": {
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

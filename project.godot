@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Escape"
+run/main_scene="res://Scenes/MainGame/main_game.tscn"
 config/icon="res://icon.png"
 
 [gdnative]

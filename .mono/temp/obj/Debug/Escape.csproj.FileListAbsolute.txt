@@ -1,0 +1,6 @@
+C:\Users\metak\Desktop\Projects\git\Escape\.mono\temp\obj\Debug\Escape.csprojAssemblyReference.cache
+C:\Users\metak\Desktop\Projects\git\Escape\.mono\temp\obj\Debug\Escape.csproj.CoreCompileInputs.cache
+C:\Users\metak\Desktop\Projects\git\Escape\.mono\temp\bin\Debug\Escape.dll
+C:\Users\metak\Desktop\Projects\git\Escape\.mono\temp\bin\Debug\Escape.pdb
+C:\Users\metak\Desktop\Projects\git\Escape\.mono\temp\obj\Debug\Escape.dll
+C:\Users\metak\Desktop\Projects\git\Escape\.mono\temp\obj\Debug\Escape.pdb
