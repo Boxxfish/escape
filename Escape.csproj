@@ -57,7 +57,10 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\InteractiveItem.cs" />
+    <Compile Include="Items\ItemInteraction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenes\MainGame\ItemSelector.cs" />
     <Compile Include="Scenes\MainGame\MainGameUI.cs" />
     <Compile Include="Scenes\MainGame\RoomCameraController.cs" />
     <Compile Include="Scenes\Signals.cs" />

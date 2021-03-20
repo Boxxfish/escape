@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Items/InteractiveItem.cs" type="Script" id=1]
+
+[node name="ItemRoot" type="StaticBody"]
+script = ExtResource( 1 )
+visualsPath = NodePath("Visual")
+
+[node name="Visual" type="Spatial" parent="."]
+
+[node name="Interaction" type="Spatial" parent="."]
+
+[node name="Collider" type="CollisionShape" parent="."]

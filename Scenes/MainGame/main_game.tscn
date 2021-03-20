@@ -1,28 +1,33 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/MainGame/test_room.glb" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MainGame/nav_arrow.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/MainGame/RoomCameraController.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/MainGame/MainGameUI.cs" type="Script" id=4]
+[ext_resource path="res://Items/Item.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/MainGame/ItemSelector.cs" type="Script" id=6]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.36377, 0.36377, 0.36377, 0.501961 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0.776471 )
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 0.501961 )
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="BoxShape" id=6]
 
 [node name="Root" type="Spatial"]
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -34,10 +39,10 @@ roomCamPath = NodePath("../Camera")
 [node name="LeftNavButton" type="Button" parent="UI"]
 anchor_bottom = 1.0
 margin_right = 38.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,10 +71,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -37.7275
 margin_right = 0.272461
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,9 +106,21 @@ transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 5, 0, 1.9336, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84032, 0 )
 script = ExtResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.40398 )
-mesh = SubResource( 1 )
+[node name="ItemSelector" type="Spatial" parent="."]
+script = ExtResource( 6 )
+camPath = NodePath("../Camera")
+
+[node name="ItemRoot" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.79986 )
+itemSelectorPath = NodePath("../ItemSelector")
+
+[node name="MeshInstance" type="MeshInstance" parent="ItemRoot/Visual" index="0"]
+mesh = SubResource( 5 )
 material/0 = null
 
+[node name="Collider" parent="ItemRoot" index="2"]
+shape = SubResource( 6 )
+
 [editable path="test_room"]
+
+[editable path="ItemRoot"]
