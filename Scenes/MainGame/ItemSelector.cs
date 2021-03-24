@@ -11,10 +11,16 @@ public class ItemSelector : Spatial
 
 	[Export]
 	public NodePath camPath;
+	[Export]
+	public NodePath invPath;
+	[Export]
+	public NodePath examPath;
 
 	private Camera cam;
-	private List<InteractiveItem> interItems = new List<InteractiveItem>();
+	private Inventory inv;
+	private ItemExaminer exam;
 
+	private List<InteractiveItem> interItems = new List<InteractiveItem>();
 	private InteractiveItem targetItem;
 	private Vector2 mousePos;
 	private bool mouseMoved;
@@ -22,16 +28,22 @@ public class ItemSelector : Spatial
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		this.cam = this.GetNode<Camera>(this.camPath);
+		this.inv = this.GetNode<Inventory>(this.invPath);
+		this.exam = this.GetNode<ItemExaminer>(this.examPath);
 	}
 
 	// Registers an interactive item.
 	public void RegisterItem(InteractiveItem item) {
 		this.interItems.Add(item);
+		item.Inventory = this.inv;
+		item.Examiner = this.exam;
 	}
 
 	// Deregisters an interactive item.
 	public void DeregisterItem(InteractiveItem item) {
 		this.interItems.Remove(item);
+		item.Inventory = null;
+		item.Examiner = null;
 	}
 
 	// Called when input events happen.
@@ -60,14 +72,14 @@ public class ItemSelector : Spatial
 
 				// If newTarget is not targetItem, call events on both items
 				if (newTarget != this.targetItem) {
-					if (newTarget is InteractiveItem)
+					if (newTarget is InteractiveItem && this.interItems.Contains((InteractiveItem)newTarget))
 						((InteractiveItem)newTarget)._on_InteractiveItem_Enter();
 					if (this.targetItem != null)
 						this.targetItem._on_InteractiveItem_Leave();
 				}
 
 				// If newTarget is an interactive item, set it as the target
-				if (newTarget is InteractiveItem)
+				if (newTarget is InteractiveItem && this.interItems.Contains((InteractiveItem)newTarget))
 					this.targetItem = (InteractiveItem)newTarget;
 				else
 					this.targetItem = null;
