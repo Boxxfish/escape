@@ -37,6 +37,7 @@ public class ItemSelector : Spatial
 		this.interItems.Add(item);
 		item.Inventory = this.inv;
 		item.Examiner = this.exam;
+		item.SetCam(this.cam);
 	}
 
 	// Deregisters an interactive item.

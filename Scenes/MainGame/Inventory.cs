@@ -36,12 +36,14 @@ public class Inventory : Node
 		// Add item to items list
 		this.items.Add(itemInfo);
 
-		// Instantiate the item and add to inventory
+		// Instantiate the item and add to inventory.
+		// Also remove interactions.
 		PackedScene scn = GD.Load<PackedScene>(ITEMS_PATH + itemInfo.ItemID + TSCN_SUFFIX);
 		InteractiveItem item = (InteractiveItem)scn.Instance();
 		item.Translate(Vector3.Right * this.itemSeparation * this.itemObjs.GetChildCount());
 		item.Scale = Vector3.One * this.itemScale;
 		this.itemObjs.AddChild(item);
+		item.RemoveInteractions();
 
 		// Add a new InvButton to the UI
 		Button invButton = new Button();

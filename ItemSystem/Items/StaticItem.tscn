@@ -13,6 +13,7 @@ material = SubResource( 1 )
 [node name="ItemRoot" type="StaticBody"]
 script = ExtResource( 1 )
 visualsPath = NodePath("Visual")
+interactivesPath = NodePath("Interaction")
 itemID = "StaticItem"
 
 [node name="Visual" type="Spatial" parent="."]

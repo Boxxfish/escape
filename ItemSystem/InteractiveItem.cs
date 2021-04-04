@@ -11,6 +11,8 @@ public class InteractiveItem : StaticBody
 	[Export]
 	public NodePath visualsPath;
 	[Export]
+	public NodePath interactivesPath;
+	[Export]
 	public string itemID;
 	[Export]
 	public bool canPickUp;
@@ -19,6 +21,7 @@ public class InteractiveItem : StaticBody
 
 	private ItemSelector itemSelector;
 	private Spatial visuals;
+	private Spatial interactives;
 	private ItemInfo itemInfo;
 
 	// Called when the node enters the scene tree for the first time.
@@ -27,14 +30,30 @@ public class InteractiveItem : StaticBody
 		if (this.itemSelectorPath != null)
 			this.itemSelector = this.GetNode<ItemSelector>(this.itemSelectorPath);
 		this.visuals = this.GetNode<Spatial>(this.visualsPath);
+		this.interactives = this.GetNode<Spatial>(this.interactivesPath);
 
-		// Register item with selector if not null
-		if (this.itemSelectorPath != null)
+		// Register item with selector if not null.
+		// Also remove interactions.
+		if (this.itemSelectorPath != null) {
 			this.itemSelector.RegisterItem(this);
+			this.RemoveInteractions();
+		}
 
 		// Initialize itemInfo
 		this.itemInfo = new ItemInfo();
 		this.itemInfo.ItemID = this.itemID;
+	}
+
+	// Sets the camera.
+	public void SetCam(Camera cam) {
+		foreach (ItemInteraction interaction in this.interactives.GetChildren()) {
+			interaction.SetCam(cam);
+		}
+	}
+
+	// Removes the interactions on this object.
+	public void RemoveInteractions() {
+		this.RemoveChild(this.interactives);
 	}
 
 	// Called when cursor enters the item.

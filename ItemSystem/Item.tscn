@@ -2,11 +2,10 @@
 
 [ext_resource path="res://ItemSystem/InteractiveItem.cs" type="Script" id=1]
 
-
-
 [node name="ItemRoot" type="StaticBody"]
 script = ExtResource( 1 )
 visualsPath = NodePath("Visual")
+interactivesPath = NodePath("Interaction")
 
 [node name="Visual" type="Spatial" parent="."]
 

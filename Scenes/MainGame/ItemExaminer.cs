@@ -12,8 +12,11 @@ public class ItemExaminer : Position3D
 	public NodePath closeButtonPath;
 	[Export]
 	public NodePath examScreenPath;
+	[Export]
+	public NodePath camPath;
 
 	private bool canRotate;
+	private Camera cam;
 	private Quat targetQuat;
 	private Button closeButton;
 	private ColorRect examScreen;
@@ -23,6 +26,7 @@ public class ItemExaminer : Position3D
 		this.targetQuat = this.Transform.basis.Quat();
 		this.closeButton = this.GetNode<Button>(this.closeButtonPath);
 		this.examScreen = this.GetNode<ColorRect>(this.examScreenPath);
+		this.cam = this.GetNode<Camera>(this.camPath);
 
 		// Connect signals
 		this.closeButton.Connect(Signals.PRESSED, this, nameof(_on_CloseButton_Pressed));
@@ -64,6 +68,7 @@ public class ItemExaminer : Position3D
 		PackedScene scn = GD.Load<PackedScene>(ITEMS_PATH + itemInfo.ItemID + TSCN_SUFFIX); ;
 		InteractiveItem item = (InteractiveItem)scn.Instance();
 		this.AddChild(item);
+		item.SetCam(this.cam);
 
 		// Set examiner flags
 		this.canRotate = item.canPickUp;
