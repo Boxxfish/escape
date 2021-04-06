@@ -6,4 +6,5 @@
 public static class Signals {
     public const string PRESSED = "pressed";
     public const string RELEASED = "released";
+    public const string REQUEST_COMPLETED = "request_completed";
 }

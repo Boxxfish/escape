@@ -60,6 +60,7 @@
     <Compile Include="ItemSystem\InteractiveItem.cs" />
     <Compile Include="ItemSystem\ItemInfo.cs" />
     <Compile Include="ItemSystem\ItemInteraction.cs" />
+    <Compile Include="AppState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\MainGame\Inventory.cs" />
     <Compile Include="Scenes\MainGame\ItemExaminer.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Scenes\MainGame\MainGameUI.cs" />
     <Compile Include="Scenes\MainGame\RoomCameraController.cs" />
     <Compile Include="Scenes\Signals.cs" />
+    <Compile Include="Scenes\TitleScreen\TitleScreen.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,189 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/OfficeCodePro/OfficeCodePro-Regular.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatWindow" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -342.0
+margin_top = 15.0
+margin_right = -18.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatLabel" type="Label" parent="ChatWindow"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -144.5
+margin_right = 144.5
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Chat"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatInput" type="TextEdit" parent="ChatWindow"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -72.0
+margin_right = -57.0
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 2 )
+text = "Sample Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatButton" type="Button" parent="ChatWindow"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 268.768
+margin_top = -72.0
+margin_right = -3.2323
+margin_bottom = -45.0
+custom_fonts/font = SubResource( 4 )
+text = "Send"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatText" type="RichTextLabel" parent="ChatWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 55.0
+margin_right = -6.0
+margin_bottom = -93.0
+focus_mode = 2
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MultiTitleRect" type="ColorRect" parent="."]
+margin_left = 56.8166
+margin_top = 95.4905
+margin_right = 291.817
+margin_bottom = 166.49
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MultiTitle" type="Label" parent="MultiTitleRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.5
+margin_top = -35.5
+margin_right = 117.5
+margin_bottom = 35.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Multiplayer"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayersLayout" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = 57.0
+margin_top = 190.0
+margin_right = 407.0
+margin_bottom = -92.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerBG" type="ColorRect" parent="PlayersLayout"]
+margin_right = 350.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="PlayerLabel" type="Label" parent="PlayersLayout/PlayerBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 33.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player1 (Host)"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 56.8166
+margin_top = -65.0
+margin_right = 130.817
+margin_bottom = -38.0
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -607.214
+margin_top = 95.0
+margin_right = -379.214
+margin_bottom = 166.0
+custom_fonts/font = SubResource( 6 )
+text = "Code: J3WT4R"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
