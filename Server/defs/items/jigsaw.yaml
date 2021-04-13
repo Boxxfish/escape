@@ -1,0 +1,70 @@
+id: jigsaw
+traits:
+    - size_medium
+usage:
+    solve_puzzle_electronic:
+        in:
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+        out:
+            -
+                type: action
+                id: electronic
+    solve_puzzle_combo:
+        in:
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+            -
+                type: item
+                traits: [jigsaw_piece]
+        out:
+            -
+                type: item
+                traits: [combination]

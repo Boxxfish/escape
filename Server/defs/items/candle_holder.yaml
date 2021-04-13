@@ -1,0 +1,20 @@
+id: candle_holder
+traits:
+    - inv_item
+    - size_medium
+usage:
+    give_item:
+        in:
+        out:
+            -
+                type: item
+                traits: [inv_item, size_small]
+    reveal_combo:
+        in:
+            -
+                type: item
+                traits: [hidden_message]
+        out:
+            -
+                type: item
+                traits: [combination]

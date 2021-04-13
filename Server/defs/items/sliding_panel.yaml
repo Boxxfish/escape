@@ -1,0 +1,14 @@
+id: sliding_panel
+traits:
+    - size_medium
+    - container
+usage:
+    open_panel:
+        in:
+            -
+                type: action
+                id: electronic
+        out:
+            -
+                type: item
+                traits: [inv_item]

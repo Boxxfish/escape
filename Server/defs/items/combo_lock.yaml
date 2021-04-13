@@ -1,0 +1,13 @@
+id: combo_lock
+traits:
+    - size_small
+usage:
+    unlock:
+        in:
+            -
+                type: item
+                traits: [combination]
+        out:
+            -
+                type: action
+                id: unlock

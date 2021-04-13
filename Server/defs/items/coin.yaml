@@ -1,0 +1,12 @@
+id: coin
+traits:
+    - size_small
+    - inv_item
+    - coin
+usage:
+    show_combo:
+        in:
+        out:
+            -
+                type: item
+                traits: [combination]

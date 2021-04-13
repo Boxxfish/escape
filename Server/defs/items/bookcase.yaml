@@ -1,0 +1,63 @@
+id: bookcase
+traits:
+    - size_large
+    - container
+    - wall_cover
+usage:
+    reveal_door_book:
+        in:
+            -
+                type: item
+                traits: [book]
+        out:
+            -
+                type: action
+                id: reveal_wall
+            -
+                type: item
+                traits: [on_wall]
+    reveal_door_book_2:
+        in:
+            -
+                type: item
+                traits: [book]
+            -
+                type: item
+                traits: [book]
+        out:
+            -
+                type: action
+                id: reveal_wall
+            -
+                type: item
+                traits: [on_wall]
+    reveal_door_book_3:
+        in:
+            -
+                type: item
+                traits: [book]
+            -
+                type: item
+                traits: [book]
+            -
+                type: item
+                traits: [book]
+        out:
+            -
+                type: action
+                id: reveal_wall
+            -
+                type: item
+                traits: [on_wall]
+    reveal_door_switch:
+        in:
+            -
+                type: action
+                id: electronic
+        out:
+            -
+                type: action
+                id: reveal_wall
+            -
+                type: item
+                traits: [on_wall]

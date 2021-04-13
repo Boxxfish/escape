@@ -1,0 +1,3 @@
+# Covers a part of the wall, but can be moved aside.
+id: wall_cover
+from: item

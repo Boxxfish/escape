@@ -1,0 +1,4 @@
+# Items that go flat against the wall.
+# Should be able to hide behind a bookshelf or something.
+id: on_wall
+from: item

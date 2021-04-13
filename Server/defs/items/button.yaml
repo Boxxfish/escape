@@ -1,0 +1,11 @@
+id: button
+traits:
+    - size_small
+    - on_wall
+usage:
+    push_button:
+        in:
+        out:
+            -
+                type: action
+                id: electronic

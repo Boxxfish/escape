@@ -1,0 +1,5 @@
+id: screwdriver
+traits:
+    - size_small
+    - screwdriver
+usage:

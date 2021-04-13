@@ -1,0 +1,28 @@
+id: lightbulb
+traits:
+    - size_small
+usage:
+    reveal_combo:
+        in:
+            -
+                type: action
+                id: electronic
+            -
+                type: item
+                traits: [hidden_message]
+        out:
+            -
+                type: item
+                traits: [combination]
+    reveal_time:
+        in:
+            -
+                type: action
+                id: electronic
+            -
+                type: item
+                traits: [hidden_message]
+        out:
+            -
+                type: item
+                traits: [time]

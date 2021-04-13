@@ -1,0 +1,11 @@
+id: switch
+traits:
+    - size_medium
+    - on_wall
+usage:
+    pull_switch:
+        in:
+        out:
+            -
+                type: action
+                id: electronic

@@ -1,0 +1,14 @@
+id: combo_panel
+traits:
+    - size_medium
+    - on_wall
+usage:
+    unlock:
+        in:
+            -
+                type: item
+                traits: [combination]
+        out:
+            -
+                type: action
+                id: electronic

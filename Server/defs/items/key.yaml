@@ -1,0 +1,5 @@
+id: key
+traits:
+    - key
+    - size_small
+usage:

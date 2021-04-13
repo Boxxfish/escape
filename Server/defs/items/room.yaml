@@ -1,0 +1,11 @@
+# This "item" just gives players items and performs actions unconditionally.
+id: room
+traits:
+    - item
+usage:
+    give_item:
+        in:
+        out:
+            -
+                type: item
+                traits: [item]

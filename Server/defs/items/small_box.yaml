@@ -1,0 +1,21 @@
+id: box
+traits:
+    - container
+    - size_small
+    - inv_item
+usage:
+    give_item:
+        in:
+        out:
+            -
+                type: item
+                traits: [inv_item]
+    unlock_item:
+        in:
+            -
+                type: action
+                id: unlock
+        out:
+            -
+                type: item
+                traits: [inv_item]

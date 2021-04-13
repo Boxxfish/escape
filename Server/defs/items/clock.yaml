@@ -1,0 +1,20 @@
+id: clock
+traits:
+    - size_medium
+    - on_wall
+usage:
+    solve_puzzle:
+        in:
+        out:
+            -
+                type: action
+                id: electronic
+    solve_puzzle_unscrew:
+        in:
+            -
+                type: item
+                traits: [screwdriver]
+        out:
+            -
+                type: action
+                id: electronic

@@ -1,0 +1,11 @@
+id: cup
+traits:
+    - inv_item
+    - size_medium
+usage:
+    give_item:
+        in:
+        out:
+            -
+                type: item
+                traits: [inv_item, size_small]

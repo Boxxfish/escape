@@ -1,0 +1,22 @@
+id: door
+traits:
+    - on_wall
+usage:
+    reveal_door:
+        in:
+            -
+                type: action
+                id: reveal_wall
+        out:
+            -
+                type: action
+                id: finish
+    use_key:
+        in:
+            -
+                type: item
+                traits: [key]
+        out:
+            -
+                type: action
+                id: finish

@@ -1,0 +1,5 @@
+id: jigsaw_piece
+traits:
+    - size_small
+    - jigsaw_piece
+usage:

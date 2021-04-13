@@ -1,0 +1,20 @@
+id: book
+traits:
+    - size_small
+    - book
+usage:
+    hidden_compartment:
+        in:
+        out:
+            -
+                type: item
+                traits: [inv_item]
+    locked_compartment:
+        in:
+            -
+                type: action
+                id: unlock
+        out:
+            -
+                type: item
+                traits: [inv_item]

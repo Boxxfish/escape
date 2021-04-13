@@ -1,0 +1,13 @@
+id: lock
+traits:
+    - size_small
+usage:
+    unlock:
+        in:
+            -
+                type: item
+                traits: [key]
+        out:
+            -
+                type: action
+                id: unlock

@@ -1,0 +1,17 @@
+id: painting
+traits:
+    - size_medium
+    - on_wall
+usage:
+    give_combo:
+        in:
+        out:
+            -
+                type: item
+                traits: [combination]
+    give_time:
+        in:
+        out:
+            -
+                type: item
+                traits: [time]

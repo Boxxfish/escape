@@ -1,0 +1,40 @@
+id: vending_machine
+traits:
+    - size_large
+usage:
+    deposit_item:
+        in:
+            -
+                type: item
+                traits: [coin]
+        out:
+            -
+                type: item
+                traits: [inv_item]
+    deposit_item_with_combo:
+        in:
+            -
+                type: item
+                traits: [coin]
+            -
+                type: item
+                traits: [combination]
+        out:
+            -
+                type: item
+                traits: [inv_item]
+    deposit_item_with_power:
+        in:
+            -
+                type: item
+                traits: [coin]
+            -
+                type: item
+                traits: [combination]
+            -
+                type: action
+                id: electronic
+        out:
+            -
+                type: item
+                traits: [inv_item]
