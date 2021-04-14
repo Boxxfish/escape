@@ -1,6 +1,7 @@
 id: combo_lock
 traits:
     - size_small
+    - bound_item
 usage:
     unlock:
         in:

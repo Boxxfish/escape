@@ -148,13 +148,15 @@ def create_graph(kb, min_n):
     node_queue = []
     
     # Create initial node (door) and add to queue
-    node = {
+    root_node = {
         "id": "door",
         "name": "door" + str(n_created),
-        "usage": random.choice(kb.get_item_usages_w_prereqs("door"))
+        "usage": random.choice(kb.get_item_usages_w_prereqs("door")),
+        "from": None,
+        "prereqs": []
     }
-    node_queue.append(node)
-    graph.add_node(node["name"])
+    node_queue.append(root_node)
+    graph.add_node(root_node["name"])
     
     # Expand nodes.
     # If n_created > min_n, stop looking for items with prerequisites.
@@ -162,28 +164,36 @@ def create_graph(kb, min_n):
         node = node_queue.pop(0)        
         if node["id"] == "room":
             continue
-        # If usage is None, create a node that spawns this node.
+        # Create the node that spawns this node.
         # Usually, this is just a "room" node.
-        if node["usage"] is None or kb.items[node["id"]]["usage"][node["usage"]]["in"] is None:
-            next_item = random.choice(kb.can_return_item(kb.items[node["id"]]["traits"]))
-            next_usage_choices = None
-            if n_created <= min_n:
-                next_usage_choices = kb.get_item_usages_w_prereqs(next_item)
-            else:
-                next_usage_choices = kb.get_item_usages_no_prereqs(next_item)
-            next_usage = None
-            if len(next_usage_choices) > 0:
-                next_usage = random.choice(next_usage_choices)
-            n_created += 1
-            new_node = {
-                "id": next_item,
-                "name": next_item + str(n_created),
-                "usage": next_usage
-            }
-            node_queue.append(new_node)
-            graph.add_node(new_node["name"])
-            graph.add_edge(new_node["name"], node["name"])
+        item_traits = kb.items[node["id"]]["traits"]
+        next_item = random.choice(kb.can_return_item(item_traits))
+        next_usage_choices = None
+        if n_created <= min_n:
+            next_usage_choices = kb.get_item_usages_w_prereqs(next_item)
         else:
+            next_usage_choices = kb.get_item_usages_no_prereqs(next_item)
+        
+        if len(next_usage_choices) == 0:
+            next_usage_choices = [x for x in kb.items[next_item]["usage"] if kb.usage_can_return_item(next_item, x, item_traits)]
+            
+        next_usage = random.choice(next_usage_choices)
+        
+        n_created += 1
+        new_node = {
+            "id": next_item,
+            "name": next_item + str(n_created),
+            "usage": next_usage,
+            "from": None,
+            "prereqs": []
+        }
+        node["from"] = new_node
+        node_queue.append(new_node)
+        graph.add_node(new_node["name"])
+        graph.add_edge(new_node["name"], node["name"])
+            
+        # Resolve prerequisites, if need be
+        if kb.items[node["id"]]["usage"][node["usage"]]["in"] is not None:
             prereqs = kb.items[node["id"]]["usage"][node["usage"]]["in"]
             for prereq in prereqs:
                 # Choose the next item to add.
@@ -201,6 +211,7 @@ def create_graph(kb, min_n):
                 if n_created <= min_n:
                     next_usage_choices = kb.get_item_usages_w_prereqs(next_item)
                 else:
+                
                     next_usage_choices = kb.get_item_usages_no_prereqs(next_item)
                 
                 if prereq["type"] == "item":
@@ -208,26 +219,33 @@ def create_graph(kb, min_n):
                 elif prereq["type"] == "action":
                     next_usage_choices = [x for x in next_usage_choices if kb.usage_can_perform_action(next_item, x, prereq["id"])]
                 
-                next_usage = None
-                if len(next_usage_choices) > 0:
-                    next_usage = random.choice(next_usage_choices)
+                if len(next_usage_choices) == 0:
+                    next_usage_choices = [x for x in kb.items[next_item]["usage"]]
+                    if prereq["type"] == "item":
+                        next_usage_choices = [x for x in next_usage_choices if kb.usage_can_return_item(next_item, x, prereq["traits"])]
+                    elif prereq["type"] == "action":
+                        next_usage_choices = [x for x in next_usage_choices if kb.usage_can_perform_action(next_item, x, prereq["id"])]
+                    
+                next_usage = random.choice(next_usage_choices)
                 n_created += 1
                 new_node = {
                     "id": next_item,
                     "name": next_item + str(n_created),
-                    "usage": next_usage
+                    "usage": next_usage,
+                    "from": None,
+                    "prereqs": []
                 }
+                node["prereqs"].append(new_node)
                 node_queue.append(new_node)
                 graph.add_node(new_node["name"])
                 graph.add_edge(new_node["name"], node["name"])
             
-    
-    return graph
+    return root_node, graph
     
 if __name__ == "__main__":
     kb = KnowledgeBase("defs")
     
     # Generate and show graph
-    graph = create_graph(kb, 20)
+    _, graph = create_graph(kb, 10)
     nx.draw_networkx(graph)
     plt.show()

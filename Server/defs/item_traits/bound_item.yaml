@@ -1,0 +1,4 @@
+# These items are bound to items and can only be spawned by the room.
+# Ex: locks (bound to the thing they lock)
+id: bound_item
+from: item

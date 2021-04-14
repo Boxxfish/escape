@@ -16,42 +16,12 @@ usage:
             -
                 type: item
                 traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
         out:
             -
                 type: action
                 id: electronic
     solve_puzzle_combo:
         in:
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
-            -
-                type: item
-                traits: [jigsaw_piece]
             -
                 type: item
                 traits: [jigsaw_piece]
