@@ -3,9 +3,13 @@ Central server for Escape.io.
 """
 
 from flask import Flask, jsonify, request, render_template
+from graph_gen import KnowledgeBase, create_graph
 import random
 import string
+
+# Globals
 app = Flask(__name__)
+kb = KnowledgeBase("defs")
 
 rooms = {}
 
@@ -15,9 +19,13 @@ def home():
     
 @app.route("/genpuzzles")
 def gen_puzzles():
+    # Generate puzzle graph
+    root_name, items, _ = create_graph(kb, 10)
+    
     return jsonify({
         "status": "ok",
-        "items": []
+        "root_name": root_name,
+        "items": items,
     })
 
 @app.route("/createroom")

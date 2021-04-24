@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ItemSystem/InteractiveItem.cs" type="Script" id=1]
+[ext_resource path="res://ItemSystem/Visuals/clock/clock.glb" type="PackedScene" id=2]
+[ext_resource path="res://ItemSystem/Interaction.tscn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.606902, 0.611954, 0.065761 )
+
+[node name="ItemRoot" type="StaticBody"]
+script = ExtResource( 1 )
+visualsPath = NodePath("Visual")
+interactivesPath = NodePath("Interaction")
+itemID = "clock"
+
+[node name="Visual" type="Spatial" parent="."]
+
+[node name="clock" parent="Visual" instance=ExtResource( 2 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 2.51863, 0.0487504 )
+
+[node name="Interaction" type="Spatial" parent="."]
+
+[node name="Interaction" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528643, 2.90994, 0.172653 )
+
+[node name="Interaction2" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626095, 2.72821, 0.172653 )
+
+[node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51863, 0.0743699 )
+shape = SubResource( 1 )

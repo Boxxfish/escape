@@ -9,12 +9,18 @@ usage:
             -
                 type: item
                 traits: [inv_item]
+            -
+                type: item
+                traits: [inv_item]
     unlock_item:
         in:
             -
                 type: action
                 id: unlock
         out:
+            -
+                type: item
+                traits: [inv_item]
             -
                 type: item
                 traits: [inv_item]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ItemSystem/InteractiveItem.cs" type="Script" id=1]
+[ext_resource path="res://ItemSystem/Interaction.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ItemSystem/AnimInteraction.cs" type="Script" id=3]
+[ext_resource path="res://ItemSystem/Visuals/book/book.glb" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.468403, 0.628331, 0.116299 )
+
+[node name="ItemRoot" type="StaticBody"]
+script = ExtResource( 1 )
+visualsPath = NodePath("Visual")
+interactivesPath = NodePath("Interaction")
+itemID = "book"
+canPickUp = true
+
+[node name="Visual" type="Spatial" parent="."]
+
+[node name="book" parent="Visual" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -0.478048, 0.706514, 0.154644 )
+
+[node name="Interaction" type="Spatial" parent="."]
+
+[node name="Interaction" parent="Interaction" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40458, 0.749771, 0.363841 )
+script = ExtResource( 3 )
+animName = "ArmatureAction"
+animPlayerPath = NodePath("../../Visual/book/AnimationPlayer")
+
+[node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.643652, 0.120526 )
+shape = SubResource( 1 )
+
+[editable path="Visual/book"]

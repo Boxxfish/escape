@@ -1,6 +1,6 @@
 id: door
 traits:
-    - on_wall
+    - item
 usage:
     reveal_door:
         in:

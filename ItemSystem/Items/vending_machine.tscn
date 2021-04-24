@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ItemSystem/InteractiveItem.cs" type="Script" id=1]
+[ext_resource path="res://ItemSystem/Visuals/vending_machine/vending_machine.glb" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.03817, 1.4943, 0.26279 )
+
+[node name="ItemRoot" type="StaticBody"]
+script = ExtResource( 1 )
+visualsPath = NodePath("Visual")
+interactivesPath = NodePath("Interaction")
+itemID = "vending_machine"
+
+[node name="Visual" type="Spatial" parent="."]
+
+[node name="vending_machine" parent="Visual" instance=ExtResource( 2 )]
+transform = Transform( 0.6, 0, 0, 0, 0.519, 0, 0, 0, 0.285, 0, 0, 0.308073 )
+
+[node name="Interaction" type="Spatial" parent="."]
+
+[node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60582, 0.314838 )
+shape = SubResource( 1 )

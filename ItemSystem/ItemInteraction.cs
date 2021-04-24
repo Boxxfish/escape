@@ -49,7 +49,7 @@ public class ItemInteraction : StaticBody
 	}
 
 	// Called when icon is clicked.
-	public void OnClick() {
+	public virtual void OnClick() {
 
 	}
 }

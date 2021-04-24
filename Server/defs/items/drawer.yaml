@@ -8,7 +8,13 @@ usage:
         out:
             -
                 type: item
-                traits: [inv_item]
+                traits: [inv_item, size_medium]
+            -
+                type: item
+                traits: [inv_item, size_small]
+            -
+                type: item
+                traits: [inv_item, size_small]
     unlock_item:
         in:
             -
@@ -17,4 +23,10 @@ usage:
         out:
             -
                 type: item
-                traits: [inv_item]
+                traits: [inv_item, size_medium]
+            -
+                type: item
+                traits: [inv_item, size_small]
+            -
+                type: item
+                traits: [inv_item, size_small]

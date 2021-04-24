@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ItemSystem/InteractiveItem.cs" type="Script" id=1]
+[ext_resource path="res://ItemSystem/Visuals/combo_panel/combo_panel.glb" type="PackedScene" id=2]
+[ext_resource path="res://ItemSystem/Interaction.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.458824, 0.458824, 0.458824, 1 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.654582, 0.961194, 0.0359692 )
+
+[node name="ItemRoot" type="StaticBody"]
+script = ExtResource( 1 )
+visualsPath = NodePath("Visual")
+interactivesPath = NodePath("Interaction")
+itemID = "combo_panel"
+
+[node name="Visual" type="Spatial" parent="."]
+
+[node name="combo_panel" parent="Visual" instance=ExtResource( 2 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 2.34704, 0.0292573 )
+
+[node name="Cube001" parent="Visual/combo_panel" index="1"]
+material/0 = SubResource( 1 )
+
+[node name="Cube003" parent="Visual/combo_panel" index="2"]
+material/0 = SubResource( 1 )
+
+[node name="Cube002" parent="Visual/combo_panel" index="3"]
+material/0 = SubResource( 1 )
+
+[node name="Cube004" parent="Visual/combo_panel" index="4"]
+material/0 = SubResource( 1 )
+
+[node name="Cube007" parent="Visual/combo_panel" index="5"]
+material/0 = SubResource( 1 )
+
+[node name="Cube006" parent="Visual/combo_panel" index="6"]
+material/0 = SubResource( 1 )
+
+[node name="Cube005" parent="Visual/combo_panel" index="7"]
+material/0 = SubResource( 1 )
+
+[node name="Cube010" parent="Visual/combo_panel" index="8"]
+material/0 = SubResource( 1 )
+
+[node name="Cube009" parent="Visual/combo_panel" index="9"]
+material/0 = SubResource( 1 )
+
+[node name="Cube008" parent="Visual/combo_panel" index="10"]
+material/0 = SubResource( 1 )
+
+[node name="Cube011" parent="Visual/combo_panel" index="11"]
+material/0 = SubResource( 1 )
+
+[node name="Cube012" parent="Visual/combo_panel" index="12"]
+material/0 = SubResource( 1 )
+
+[node name="Interaction" type="Spatial" parent="."]
+
+[node name="Interaction" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305109, 2.71908, 0.141417 )
+
+[node name="Interaction2" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0919502, 2.71908, 0.141417 )
+
+[node name="Interaction3" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.472291, 2.71908, 0.141417 )
+
+[node name="Interaction4" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305109, 2.37635, 0.141417 )
+
+[node name="Interaction5" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0919502, 2.37635, 0.141417 )
+
+[node name="Interaction6" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.472291, 2.37635, 0.141417 )
+
+[node name="Interaction7" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305109, 2.02945, 0.141417 )
+
+[node name="Interaction8" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0919502, 2.02945, 0.141417 )
+
+[node name="Interaction9" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.472291, 2.02945, 0.141417 )
+
+[node name="Interaction10" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305109, 1.6909, 0.141417 )
+
+[node name="Interaction12" parent="Interaction" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.472291, 1.6909, 0.141417 )
+
+[node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34704, 0.0292573 )
+shape = SubResource( 2 )
+
+[editable path="Visual/combo_panel"]

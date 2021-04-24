@@ -1,0 +1,23 @@
+id: table
+traits:
+    - item
+    - size_large
+usage:
+    give_item:
+        in:
+        out:
+            -
+                type: item
+                traits: [inv_item, size_small]
+            -
+                type: item
+                traits: [inv_item, size_small]
+            -
+                type: item
+                traits: [inv_item, size_small]
+            -
+                type: item
+                traits: [inv_item, size_small]
+            -
+                type: item
+                traits: [inv_item, size_medium]

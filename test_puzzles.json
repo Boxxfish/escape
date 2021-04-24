@@ -1,0 +1,88 @@
+{
+  "items": {
+    "box2": {
+      "from": "room3", 
+      "id": "box", 
+      "name": "box2", 
+      "outputs": [
+        "door0", 
+        null
+      ], 
+      "prereqs": [
+        "combo_lock4"
+      ], 
+      "seed": 86, 
+      "usage": "unlock_item"
+    }, 
+    "combo_lock4": {
+      "from": "room5", 
+      "id": "combo_lock", 
+      "name": "combo_lock4", 
+      "outputs": [
+        "box2"
+      ], 
+      "prereqs": [
+        "room6"
+      ], 
+      "seed": 42, 
+      "usage": "unlock"
+    }, 
+    "door0": {
+      "from": "room1", 
+      "id": "door", 
+      "name": "door0", 
+      "outputs": [], 
+      "prereqs": [
+        "box2"
+      ], 
+      "seed": 51, 
+      "usage": "use_key"
+    }, 
+    "room1": {
+      "from": null, 
+      "id": "room", 
+      "name": "room1", 
+      "outputs": [
+        "door0"
+      ], 
+      "prereqs": [], 
+      "seed": 0, 
+      "usage": "give_item"
+    }, 
+    "room3": {
+      "from": null, 
+      "id": "room", 
+      "name": "room3", 
+      "outputs": [
+        "box2"
+      ], 
+      "prereqs": [], 
+      "seed": 99, 
+      "usage": "give_item"
+    }, 
+    "room5": {
+      "from": null, 
+      "id": "room", 
+      "name": "room5", 
+      "outputs": [
+        "combo_lock4"
+      ], 
+      "prereqs": [], 
+      "seed": 36, 
+      "usage": "give_item"
+    }, 
+    "room6": {
+      "from": null, 
+      "id": "room", 
+      "name": "room6", 
+      "outputs": [
+        "combo_lock4"
+      ], 
+      "prereqs": [], 
+      "seed": 67, 
+      "usage": "give_item"
+    }
+  }, 
+  "root_name": "door0", 
+  "status": "ok"
+}

@@ -44,7 +44,8 @@ public class TitleScreen : Control
 			Godot.Collections.Dictionary json = (Godot.Collections.Dictionary)JSON.Parse(Encoding.UTF8.GetString(body)).Result;
 			if (json["status"].Equals("ok")) {
 				// Load solo room
-				AppState.items = (Godot.Collections.Array)json["items"];
+				AppState.items = (Godot.Collections.Dictionary)json["items"];
+				AppState.rootItem = (string)json["root_name"];
 				this.GetTree().ChangeSceneTo(GD.Load<PackedScene>(GAME_PATH));
 			}
 		}

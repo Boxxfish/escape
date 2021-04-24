@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ItemSystem/InteractiveItem.cs" type="Script" id=1]
+[ext_resource path="res://ItemSystem/Visuals/drawer/drawer.glb" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1.39917, 1 )
+
+[node name="ItemRoot" type="StaticBody"]
+script = ExtResource( 1 )
+visualsPath = NodePath("Visual")
+interactivesPath = NodePath("Interaction")
+itemID = "drawer"
+
+[node name="Visual" type="Spatial" parent="."]
+
+[node name="drawer" parent="Visual" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42404, 1.01062 )
+
+[node name="Interaction" type="Spatial" parent="."]
+
+[node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42404, 1.01062 )
+shape = SubResource( 1 )
+
+[editable path="Visual/drawer"]
