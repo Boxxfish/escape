@@ -4,6 +4,7 @@
 [ext_resource path="res://ItemSystem/Visuals/closet/closet.glb" type="PackedScene" id=2]
 
 [sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1.90448, 0.690135 )
 
 [node name="ItemRoot" type="StaticBody"]
 script = ExtResource( 1 )
@@ -19,5 +20,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.054153 )
 [node name="Interaction" type="Spatial" parent="."]
 
 [node name="Collider" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.054153 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80419, -0.561561 )
 shape = SubResource( 1 )

@@ -17,17 +17,18 @@ itemID = "switch"
 [node name="Visual" type="Spatial" parent="."]
 
 [node name="switch" parent="Visual" instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.47717, 0.0465829 )
 
 [node name="Interaction" type="Spatial" parent="."]
 
 [node name="Interaction" parent="Interaction" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.181408, -0.344141, 0.177198 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.181408, 2.13303, 0.223781 )
 script = ExtResource( 4 )
 animName = "ArmatureAction"
 animPlayerPath = NodePath("../../Visual/switch/AnimationPlayer")
 
 [node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47717, 0.0465829 )
 shape = SubResource( 1 )
 
 [editable path="Visual/switch"]

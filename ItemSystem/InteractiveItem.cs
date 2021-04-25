@@ -3,8 +3,7 @@ using System;
 
 public class InteractiveItem : StaticBody
 {
-	public float NORMAL_SCALE = 1.0f;
-	public float SELECTED_SCALE = 1.02f;
+	public float SELECTED_TINT = 1.1f;
 
 	[Export]
 	public NodePath itemSelectorPath;
@@ -32,6 +31,9 @@ public class InteractiveItem : StaticBody
 		this.visuals = this.GetNode<Spatial>(this.visualsPath);
 		this.interactives = this.GetNode<Spatial>(this.interactivesPath);
 
+		// Make materials unique
+		this.MakeMaterialsUnique(this.visuals);
+
 		// Register item with selector if not null.
 		// Also remove interactions.
 		if (this.itemSelectorPath != null) {
@@ -58,12 +60,38 @@ public class InteractiveItem : StaticBody
 
 	// Called when cursor enters the item.
 	public void _on_InteractiveItem_Enter() {
-		this.visuals.Scale = Vector3.One * SELECTED_SCALE;
+		SetChildrenTint(this.visuals, SELECTED_TINT);
 	}
 
 	// Called when cursor leaves item.
 	public void _on_InteractiveItem_Leave() {
-		this.visuals.Scale = Vector3.One * NORMAL_SCALE;
+		SetChildrenTint(this.visuals, 1.0f / SELECTED_TINT);
+	}
+
+	// Recursively sets the tint of all children.
+	private void SetChildrenTint(Node node, float tint) {
+		if (node is MeshInstance meshNode) {
+			SpatialMaterial mat = (SpatialMaterial)meshNode.MaterialOverride;
+			mat.AlbedoColor *= tint;
+		}
+
+		foreach (Node child in node.GetChildren())
+			SetChildrenTint(child, tint);
+	}
+
+	// Recursively makes materials unique.
+	// If no material exists, set a blank one.
+	private void MakeMaterialsUnique(Node node) {
+		if (node is MeshInstance meshNode) {
+			SpatialMaterial mat = (SpatialMaterial)meshNode.GetActiveMaterial(0);
+			if (mat == null)
+				meshNode.MaterialOverride = new SpatialMaterial();
+			else
+				meshNode.MaterialOverride = (SpatialMaterial)mat.Duplicate();
+		}
+
+		foreach (Node child in node.GetChildren())
+			MakeMaterialsUnique(child);
 	}
 
 	// Called when item is selected.

@@ -16,13 +16,13 @@ itemID = "button"
 [node name="Visual" type="Spatial" parent="."]
 
 [node name="button" parent="Visual" instance=ExtResource( 2 )]
-transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0.0316062 )
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 2.2238, 0.0316062 )
 
 [node name="Interaction" type="Spatial" parent="."]
 
 [node name="Interaction" parent="Interaction" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.295106 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2238, 0.295106 )
 
 [node name="Collider" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0754817 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2238, 0.0754817 )
 shape = SubResource( 1 )
