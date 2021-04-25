@@ -27,5 +27,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222036, -0.119612, 0.082972
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.207396, -0.115952, 0.0829727 )
 
 [node name="Collider" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.108039, 0.0251673 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150019, 0.0251673 )
 shape = SubResource( 1 )

@@ -70,6 +70,13 @@ public class ItemExaminer : Position3D
 		this.AddChild(item);
 		item.SetCam(this.cam);
 
+		// Resize and center the item using the collider as bounds
+		CollisionShape collider = item.GetNode<CollisionShape>("Collider");
+		BoxShape colliderShape = (BoxShape)collider.Shape;
+		float largestDim = Mathf.Max(Mathf.Max(colliderShape.Extents.x, colliderShape.Extents.y), colliderShape.Extents.z);
+		item.Scale = Vector3.One * (1.0f / largestDim);
+		item.Translate(-collider.Transform.origin);
+
 		// Set examiner flags
 		this.canRotate = item.canPickUp;
 
